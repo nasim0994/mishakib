@@ -1,7 +1,4 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-// import Masonry from "react-responsive-masonry";
-// const { ResponsiveMasonry } = Masonry;
-import Masonry from "react-masonry-css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 
@@ -24,15 +21,11 @@ const galleries = [
 ];
 
 export default function Gallery() {
-  const breakpointColumnsObj = {
-    default: 3,
-    1024: 2,
-    640: 1,
-  };
-
   return (
     <section className="py-16 bg-primary text-primary-foreground">
-      <div className="container">
+      <div className="container relative">
+        <div className="absolute w-[500px] h-[500px] rounded-full blur-[100px] bg-secondary/10 right-0 top-0"></div>
+
         <h2 className="font-medium text-2xl sm:text-3xl text-center">
           Gallery
         </h2>

@@ -26,8 +26,8 @@ export default function Services() {
   const getActiveIndex = () => hoveredIndex ?? 1;
 
   return (
-    <section className="py-10 bg-primary text-primary-foreground">
-      <div className="container">
+    <section className="py-10 bg-primary text-primary-foreground overflow-hidden">
+      <div className="container relative">
         <h2 className="font-medium text-2xl sm:text-3xl text-center">
           Services
         </h2>
@@ -42,13 +42,11 @@ export default function Services() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-           
-                  <div
-                    className={`rotated_bg absolute inset-0 z-0 ${
-                      isActive && "show"
-                    }`}
-                  ></div>
-               
+                <div
+                  className={`rotated_bg absolute inset-0 z-0 ${
+                    isActive && "show"
+                  }`}
+                ></div>
 
                 <div className="service_card border border-secondary relative z-10 p-4">
                   <img src={service.icon} alt="service" className="w-10" />
@@ -63,6 +61,8 @@ export default function Services() {
             );
           })}
         </div>
+
+        <div className="absolute w-[500px] h-[500px] rounded-full blur-[100px] bg-secondary/10 left-0 top-0"></div>
       </div>
     </section>
   );
