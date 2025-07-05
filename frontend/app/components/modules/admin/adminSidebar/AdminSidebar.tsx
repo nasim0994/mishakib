@@ -45,6 +45,11 @@ const adminSidebarItems: ISidebarItem[] = [
         title: "Social Link",
         path: "/admin/social-link",
       },
+      {
+        icon: <BiBookAlt />,
+        title: "Count",
+        path: "/admin/count",
+      },
     ],
   },
   {
