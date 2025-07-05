@@ -10,7 +10,10 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <section className="pb-16 bg-primary text-primary-foreground overflow-hidden">
+    <section
+      id="contact"
+      className="pb-16 bg-primary text-primary-foreground overflow-hidden"
+    >
       <div className="container">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 bg-secondary/5 border border-secondary/20 p-8 rounded-xl">
           <div className="flex flex-col" data-aos="zoom-out-right">

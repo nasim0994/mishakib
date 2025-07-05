@@ -86,10 +86,6 @@ label {
   color: var(--color-primary);
 }
 
-.active {
-  color: var(--color-secondary);
-}
-
 .service_card_wrap {
   position: relative;
 }

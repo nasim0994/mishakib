@@ -1,6 +1,6 @@
 export default function Skill() {
   return (
-    <section className="py-10 bg-primary text-primary-foreground">
+    <section id="skill" className="p-16 bg-primary text-primary-foreground">
       <div className="container">
         <h2 className="font-medium text-2xl sm:text-3xl text-center">
           My Skills

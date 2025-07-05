@@ -26,7 +26,10 @@ export default function Services() {
   const getActiveIndex = () => hoveredIndex ?? 1;
 
   return (
-    <section className="py-10 bg-primary text-primary-foreground overflow-hidden">
+    <section
+      id="service"
+      className="pt-16 bg-primary text-primary-foreground overflow-hidden"
+    >
       <div className="container relative">
         <h2 className="font-medium text-2xl sm:text-3xl text-center">
           Services
