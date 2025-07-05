@@ -13,7 +13,7 @@ export default function Contact() {
     <section className="pb-16 bg-primary text-primary-foreground overflow-hidden">
       <div className="container">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 bg-secondary/5 border border-secondary/20 p-8 rounded-xl">
-          <div className="flex flex-col">
+          <div className="flex flex-col" data-aos="zoom-out-right">
             <h2 className="text-3xl font-bold mb-4">Contact Information</h2>
             <p className="text-gray-200 mb-6">
               I'm always open to discussing new projects, creative ideas, or
@@ -61,7 +61,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div>
+          <div data-aos="zoom-out-left">
             <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
             <form className="space-y-4">
               <div>

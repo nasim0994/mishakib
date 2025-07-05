@@ -32,7 +32,10 @@ export default function Services() {
           Services
         </h2>
 
-        <div className="pt-10 grid grid-cols-2 md:grid-cols-3 gap-8 md:mx-40">
+        <div
+          data-aos="fade-up-right"
+          className="pt-10 grid grid-cols-2 md:grid-cols-3 gap-8 md:mx-40"
+        >
           {services.map((service, index) => {
             const isActive = index === getActiveIndex();
             return (

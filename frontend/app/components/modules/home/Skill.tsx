@@ -12,7 +12,10 @@ export default function Skill() {
           nostrum perferendis aspernatur repellendus. Quam, itaque.
         </p>
 
-        <div className="mt-6 flex flex-wrap gap-3 items-center justify-center">
+        <div
+          data-aos="zoom-in-up"
+          className="mt-6 flex flex-wrap gap-3 items-center justify-center"
+        >
           <div className="w-24 h-24 rounded-xl bg-secondary/5 border border-secondary/15 flex justify-center items-center">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/500px-Adobe_Photoshop_CC_icon.svg.png"

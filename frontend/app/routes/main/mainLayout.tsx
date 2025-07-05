@@ -3,10 +3,17 @@ import Header from "@/components/shared/Header/Header";
 import useFluidCursor from "@/components/shared/useFluidCursor";
 import { useEffect } from "react";
 import { Outlet } from "react-router";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function MainLayout() {
   useEffect(() => {
     useFluidCursor();
+
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
   }, []);
 
   return (

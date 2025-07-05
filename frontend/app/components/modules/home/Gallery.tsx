@@ -43,7 +43,7 @@ export default function Gallery() {
               </div>
             </div>
 
-            <TabsContent value="logo">
+            <TabsContent value="logo" data-aos="flip-down">
               <PhotoProvider>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                   {galleries?.map((gallery) => (
