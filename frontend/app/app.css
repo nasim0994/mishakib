@@ -104,6 +104,13 @@ label {
   transform: rotate(6deg);
   border-radius: 8px;
   z-index: 0;
+
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.rotated_bg.show {
+  opacity: 1;
 }
 
 .service_card {

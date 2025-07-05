@@ -16,7 +16,8 @@ export default function MainLayout() {
         <Outlet />
       </main>
       <Footer />
-      <div className="fixed top-0 left-0 z-2">
+
+      <div className="fixed top-0 left-0 z-10 pointer-events-none opacity-40">
         <canvas id="fluid" className="w-screen h-screen" />
       </div>
     </>
