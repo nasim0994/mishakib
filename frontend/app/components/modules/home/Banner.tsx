@@ -27,9 +27,11 @@ export default function Banner() {
                 Amet eu quis mauris est diam eget nulla purus ipsum. Lacinia
                 accumsan enim amet.
               </p>
-              <button className="bg-secondary/90 text-secondary-foreground px-6 py-2 rounded hover:bg-secondary transition">
-                ABOUT ME
-              </button>
+              <div>
+                <button className="bg-secondary/90 text-secondary-foreground px-6 py-2 rounded hover:bg-secondary transition">
+                  Download CV
+                </button>
+              </div>
             </div>
           </div>
 

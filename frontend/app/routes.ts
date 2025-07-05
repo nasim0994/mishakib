@@ -9,5 +9,12 @@ import {
 export default [
   layout("routes/layout.tsx", [
     layout("routes/main/mainLayout.tsx", [index("routes/main/home/index.tsx")]),
+
+    // Dashboard
+    layout("routes/admin/layout.tsx", [
+      ...prefix("admin", [
+        route("dashboard", "routes/admin/dashboard/index.tsx"),
+      ]),
+    ]),
   ]),
 ] satisfies RouteConfig;
