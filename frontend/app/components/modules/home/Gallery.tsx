@@ -33,12 +33,14 @@ export default function Gallery() {
   return (
     <section className="py-16 bg-primary text-primary-foreground">
       <div className="container">
-        <h2 className="font-medium text-2xl text-center">Gallery</h2>
+        <h2 className="font-medium text-2xl sm:text-3xl text-center">
+          Gallery
+        </h2>
 
         <div className="flex items-center justify-center mt-4">
           <Tabs defaultValue="logo">
-            <div className="flex items-center justify-center">
-              <div className="w-max bg-secondary/5 backdrop-blur-[20px] border border-secondary/15 rounded-xl px-2 py-1">
+            <div className="flex flex-wrap items-center justify-center mb-3">
+              <div className="bg-secondary/5 backdrop-blur-[20px] border border-secondary/15 rounded-xl px-2 py-1">
                 <TabsList>
                   <TabsTrigger value="logo">Logo Design</TabsTrigger>
                   <TabsTrigger value="post">Post Design</TabsTrigger>
@@ -50,11 +52,7 @@ export default function Gallery() {
 
             <TabsContent value="logo">
               <PhotoProvider>
-                <Masonry
-                  breakpointCols={breakpointColumnsObj}
-                  className="my-masonry-grid"
-                  columnClassName="my-masonry-grid_column"
-                >
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                   {galleries?.map((gallery) => (
                     <PhotoView key={gallery?._id} src={gallery?.image}>
                       <img
@@ -64,7 +62,7 @@ export default function Gallery() {
                       />
                     </PhotoView>
                   ))}
-                </Masonry>
+                </div>
               </PhotoProvider>
             </TabsContent>
             <TabsContent value="post">Post Design</TabsContent>

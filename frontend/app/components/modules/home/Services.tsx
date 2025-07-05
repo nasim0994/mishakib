@@ -2,9 +2,11 @@ export default function Services() {
   return (
     <section className="py-10 bg-primary text-primary-foreground">
       <div className="container">
-        <h2 className="font-medium text-2xl text-center">Services</h2>
+        <h2 className="font-medium text-2xl sm:text-3xl text-center">
+          Services
+        </h2>
 
-        <div className="mt-10 grid grid-cols-3 gap-8 md:mx-40">
+        <div className="pt-10 grid grid-cols-2 md:grid-cols-3 gap-8 md:mx-40">
           <div className="service_card_wrap">
             <div className="service_card">
               <img

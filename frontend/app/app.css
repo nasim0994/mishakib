@@ -46,7 +46,7 @@ select:focus-visible {
 
 label {
   font-size: 15px;
-  color: var(--color-neutral);
+  color: var(--color-gray-300);
 }
 
 .no-focus:focus {
@@ -115,12 +115,4 @@ label {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-.my-masonry-grid {
-  display: flex;
-  gap: 1rem;
-}
-.my-masonry-grid_column {
-  background-clip: padding-box;
 }

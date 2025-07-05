@@ -1,7 +1,7 @@
 export default function Banner() {
   return (
-    <section className="mb-[92vh] ">
-      <div className="absolute top-0 left-0 z-40 w-full min-h-screen bg-gradient-to-t from-primary via-accent to-[#141c0d] text-base-100 px-10 py-10 flex items-center overflow-hidden">
+    <section>
+      <div className="w-full min-h-screen bg-gradient-to-t from-primary via-accent to-[#141c0d] text-base-100 sm:px-10 py-10 flex items-center relative overflow-hidden">
         <div className="absolute w-[500px] h-[500px] rounded-full blur-xl bg-secondary/5 -right-[250px] -top-[250px]"></div>
 
         <div className="pt-20 container">
