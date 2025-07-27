@@ -9,6 +9,9 @@ import { serviceRoute } from '../modules/service/serviceRoute';
 import { skillRoute } from '../modules/skill/skillRoute';
 import { categoryRoute } from '../modules/gallery/category/categoryRoute';
 import { galleryRoute } from '../modules/gallery/gallery/galleryRoute';
+import { contactRoute } from '../modules/contact/contactRoute';
+import { socialRoute } from '../modules/social/socialRoute';
+import { messageRoute } from '../modules/message/messageRoute';
 
 const moduleRoutes = [
   {
@@ -46,6 +49,18 @@ const moduleRoutes = [
   {
     path: '/gallery',
     route: galleryRoute,
+  },
+  {
+    path: '/contact',
+    route: contactRoute,
+  },
+  {
+    path: '/social',
+    route: socialRoute,
+  },
+  {
+    path: '/message',
+    route: messageRoute,
   },
 ];
 
