@@ -26,6 +26,10 @@ export default [
           "counter/edit/:id",
           "routes/admin/contact/counter/editCounter.tsx"
         ),
+
+        route("service/all", "routes/admin/service/all.tsx"),
+        route("service/add", "routes/admin/service/add.tsx"),
+        route("service/edit/:id", "routes/admin/service/edit.tsx"),
       ]),
     ]),
   ]),
