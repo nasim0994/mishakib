@@ -119,3 +119,56 @@ label {
   flex-direction: column;
   gap: 10px;
 }
+
+table {
+  width: 100%;
+  font-size: 15px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--color-base-100);
+}
+
+table thead th {
+  background: #dddddd94;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #404145e6;
+  text-transform: uppercase;
+  text-align: start;
+  white-space: nowrap;
+}
+
+table tbody td {
+  padding: 10px;
+  text-align: start;
+  border-bottom: 1px solid #dddddd94;
+}
+
+table tfoot tr {
+  border-bottom: 1px solid #dddddd94;
+}
+
+table tfoot tr td {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-transform: uppercase;
+  text-align: start;
+  white-space: nowrap;
+}
+
+table tfoot tr th {
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  text-transform: uppercase;
+  text-align: start;
+  white-space: nowrap;
+}
+
+table tfoot tr:last-child {
+  border-bottom: none;
+}

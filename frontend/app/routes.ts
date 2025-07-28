@@ -19,6 +19,13 @@ export default [
         route("dashboard", "routes/admin/dashboard/index.tsx"),
         route("about", "routes/admin/contact/about.tsx"),
         route("skill", "routes/admin/skill/index.tsx"),
+
+        route("counter/all", "routes/admin/contact/counter/allCounter.tsx"),
+        route("counter/add", "routes/admin/contact/counter/addCounter.tsx"),
+        route(
+          "counter/edit/:id",
+          "routes/admin/contact/counter/editCounter.tsx"
+        ),
       ]),
     ]),
   ]),
