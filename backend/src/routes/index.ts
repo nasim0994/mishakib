@@ -12,6 +12,8 @@ import { galleryRoute } from '../modules/gallery/gallery/galleryRoute';
 import { contactRoute } from '../modules/contact/contactRoute';
 import { socialRoute } from '../modules/social/socialRoute';
 import { messageRoute } from '../modules/message/messageRoute';
+import { logoRoute } from '../modules/logo/logoRoute';
+import { seoRoute } from '../modules/seo/seoRoute';
 
 const moduleRoutes = [
   {
@@ -61,6 +63,14 @@ const moduleRoutes = [
   {
     path: '/message',
     route: messageRoute,
+  },
+  {
+    path: '/logo-favicon',
+    route: logoRoute,
+  },
+  {
+    path: '/seo',
+    route: seoRoute,
   },
 ];
 

@@ -1,6 +1,3 @@
-// import TagsInput from "react-tagsinput";
-// import "react-tagsinput/react-tagsinput.css";
-
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,19 +9,19 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  useAddSEOMutation,
-  useGetSEOQuery,
-  useUpdateSEOMutation,
-} from "@/redux/features/seo/seoApi";
 import { type FieldValues, type SubmitHandler, useForm } from "react-hook-form";
 import type { TResponse } from "@/interface/globalInterface";
 import toast from "react-hot-toast";
+import {
+  useAddSeoMutation,
+  useGetSeoQuery,
+  useUpdateSeoMutation,
+} from "@/redux/features/seo/seoApi";
 
 export default function SEO() {
   const form = useForm();
 
-  const { data } = useGetSEOQuery({});
+  const { data } = useGetSeoQuery({});
   const seo = data?.data;
   const id = seo?._id;
 
@@ -46,17 +43,16 @@ export default function SEO() {
 
         facebook_domain_verification: seo.facebook_domain_verification || "",
         google_site_verification: seo.google_site_verification || "",
-        google_tag_manager: seo.google_tag_manager || "",
       });
     }
   }, [seo, form]);
 
-  const [addSEO, { isLoading }] = useAddSEOMutation();
-  const [updateSEO, { isLoading: uLoading }] = useUpdateSEOMutation();
+  const [addSeo, { isLoading }] = useAddSeoMutation();
+  const [updateSeo, { isLoading: uLoading }] = useUpdateSeoMutation();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     if (id) {
-      const res = (await updateSEO({ id, data })) as TResponse;
+      const res = (await updateSeo({ id, data })) as TResponse;
       if (res?.data?.success) {
         toast.success("SEO Update Success");
         form.reset();
@@ -65,7 +61,7 @@ export default function SEO() {
         console.log(res);
       }
     } else {
-      const res = (await addSEO(data)) as TResponse;
+      const res = (await addSeo(data)) as TResponse;
       if (res?.data?.success) {
         toast.success("SEO Add Success");
         form.reset();
@@ -77,9 +73,9 @@ export default function SEO() {
   };
 
   return (
-    <section className="bg-base-100 shadow rounded p-4">
-      <div className="container">
-        <h3 className="text-center">SEO Setting</h3>
+    <section className="bg-base-100 rounded shadow">
+      <div className="p-4 border-b">
+        <h3 className="font-medium text-neutral">SEO Setting</h3>
       </div>
 
       <Form {...form}>
@@ -89,7 +85,7 @@ export default function SEO() {
         >
           <div>
             <p className="mb-2">Basic Meta Tags</p>
-            <div className="grid sm:grid-cols-2 gap-3 border rounded p-3">
+            <div className="grid sm:grid-cols-2 gap-3 border border-gray-300 rounded p-3">
               <FormField
                 control={form.control}
                 name="title"
@@ -190,7 +186,7 @@ export default function SEO() {
 
           <div>
             <p className="mb-2">OpenGraph Meta Tags</p>
-            <div className="grid sm:grid-cols-2 gap-3 border rounded p-3">
+            <div className="grid sm:grid-cols-2 gap-3 border rounded p-3 border-gray-300">
               <FormField
                 control={form.control}
                 name="ogTitle"
@@ -279,7 +275,7 @@ export default function SEO() {
 
           <div>
             <p className="mb-2">Custom Tags</p>
-            <div className="grid sm:grid-cols-2 gap-3 border rounded p-3">
+            <div className="grid sm:grid-cols-2 gap-3 border rounded p-3 border-gray-300">
               <FormField
                 control={form.control}
                 name="facebook_domain_verification"
@@ -300,20 +296,6 @@ export default function SEO() {
                 render={({ field }) => (
                   <FormItem>
                     <label>Google Site Verification Id</label>
-                    <FormControl>
-                      <Input type="text" {...field} value={field.value || ""} />
-                    </FormControl>
-                    <FormMessage className="text-xs font-light" />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="google_tag_manager"
-                render={({ field }) => (
-                  <FormItem>
-                    <label>Google Tag Manager Id</label>
                     <FormControl>
                       <Input type="text" {...field} value={field.value || ""} />
                     </FormControl>

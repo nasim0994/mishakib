@@ -46,6 +46,9 @@ export default [
         route("social/all", "routes/admin/contact/social/all.tsx"),
         route("social/add", "routes/admin/contact/social/add.tsx"),
         route("social/edit/:id", "routes/admin/contact/social/edit.tsx"),
+
+        route("setting/logo", "routes/admin/setting/logo/index.tsx"),
+        route("setting/seo", "routes/admin/setting/seo/index.tsx"),
       ]),
     ]),
   ]),

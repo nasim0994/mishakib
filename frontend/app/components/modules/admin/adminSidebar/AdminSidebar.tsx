@@ -97,14 +97,9 @@ const adminSidebarItems: ISidebarItem[] = [
     menu: [
       { icon: <MdMonitor />, title: "Logo", path: "/admin/setting/logo" },
       {
-        icon: <MdMonitor />,
-        title: "Favicon",
-        path: "/admin/setting/favicon",
-      },
-      {
         icon: <CgSearchFound />,
         title: "SEO",
-        path: "/admin/seo",
+        path: "/admin/setting/seo",
       },
     ],
   },
