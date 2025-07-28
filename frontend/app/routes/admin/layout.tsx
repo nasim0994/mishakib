@@ -9,9 +9,9 @@ export default function AdminLayout() {
   const [sidebar, setSidebar] = useState(false);
   const { loggedUser } = useAppSelector((store) => store.auth);
 
-  // if (!loggedUser || loggedUser.role !== "admin") {
-  //   return <Navigate to="/login" replace />;
-  // }
+  if (!loggedUser || loggedUser.role !== "admin") {
+    return <Navigate to="/login" replace />;
+  }
 
   return (
     <div className="flex items-start">

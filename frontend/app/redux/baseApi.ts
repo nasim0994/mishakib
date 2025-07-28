@@ -1,29 +1,22 @@
-import {
-  createApi,
-  fetchBaseQuery,
-  type DefinitionType,
-  type BaseQueryApi,
-  type BaseQueryFn,
-  type FetchArgs,
-} from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import type { RootState } from "./store";
 
-const url = import.meta.env.VITE_BACKEND_URL;
+const url = import.meta.env.VITE_BACKEND_URL + "/api";
 
-const baseQuery = fetchBaseQuery({ baseUrl: url });
-
-const baseQueryWithRefreshToken: BaseQueryFn<
-  FetchArgs,
-  BaseQueryApi,
-  DefinitionType
-> = async (args, api, extraOptions): Promise<any> => {
-  let result = await baseQuery(args, api, extraOptions);
-
-  return result;
-};
+const baseQuery = fetchBaseQuery({
+  baseUrl: url,
+  prepareHeaders: async (headers, { getState }) => {
+    const token = (getState() as RootState).auth.token;
+    if (token) {
+      headers.set("authorization", `Bearer ${token}`);
+    }
+    return headers;
+  },
+});
 
 export const baseApi = createApi({
   reducerPath: "baseApi",
-  baseQuery: baseQueryWithRefreshToken,
+  baseQuery: baseQuery,
   endpoints: () => ({}),
-  tagTypes: ["user"],
+  tagTypes: ["about", "user"],
 });

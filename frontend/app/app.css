@@ -45,8 +45,8 @@ select:focus-visible {
 }
 
 label {
-  font-size: 15px;
-  color: var(--color-gray-300);
+  font-size: 14.5px;
+  color: var(--color-gray-500);
 }
 
 .no-focus:focus {

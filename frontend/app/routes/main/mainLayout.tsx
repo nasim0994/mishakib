@@ -19,9 +19,10 @@ export default function MainLayout() {
   return (
     <>
       <Header />
-      <main className="min-h-[80vh]">
+      <main className="min-h-[85vh]">
         <Outlet />
       </main>
+
       <Footer />
 
       <div className="fixed top-0 left-0 z-10 pointer-events-none opacity-40">
