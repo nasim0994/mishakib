@@ -51,7 +51,9 @@ export default function AllSocial() {
             {socials?.map((social: ISocial, i: number) => (
               <tr key={social?._id}>
                 <td>{i + 1}</td>
-                <td>{social?.icon}</td>
+                <td>
+                  <img src={social?.icon} alt="social" className="w-7" />
+                </td>
                 <td>{social?.link}</td>
                 <td>
                   <div className="flex gap-3 items-center">

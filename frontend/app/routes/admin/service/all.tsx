@@ -49,18 +49,22 @@ export default function AllService() {
             </tr>
           </thead>
           <tbody>
-            {services?.map((counter: IService, i: number) => (
-              <tr key={counter?._id}>
+            {services?.map((service: IService, i: number) => (
+              <tr key={service?._id}>
                 <td>{i + 1}</td>
-                <td>{counter?.title}</td>
-                <td>{counter?.icon}</td>
-                <td>{counter?.image}</td>
+                <td>{service?.title}</td>
+                <td>
+                  <img src={service?.icon} alt="service" className="w-7" />
+                </td>
+                <td>
+                  <img src={service?.image} alt="service" className="w-8" />
+                </td>
                 <td>
                   <div className="flex gap-3 items-center">
-                    <Link to={`/admin/service/edit/${counter?._id}`}>
+                    <Link to={`/admin/service/edit/${service?._id}`}>
                       <AiOutlineEdit className="text-lg hover:text-red-500" />
                     </Link>
-                    <button onClick={() => handleDelete(counter?._id)}>
+                    <button onClick={() => handleDelete(service?._id)}>
                       <AiOutlineDelete className="text-lg hover:text-red-500" />
                     </button>
                   </div>

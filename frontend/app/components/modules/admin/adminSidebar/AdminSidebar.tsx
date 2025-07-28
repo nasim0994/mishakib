@@ -57,11 +57,6 @@ const adminSidebarItems: ISidebarItem[] = [
     menu: [
       {
         icon: <TbShoppingBagCheck />,
-        title: "Service Section",
-        path: "/admin/service/section",
-      },
-      {
-        icon: <TbShoppingBagCheck />,
         title: "All Services",
         path: "/admin/service/all",
       },

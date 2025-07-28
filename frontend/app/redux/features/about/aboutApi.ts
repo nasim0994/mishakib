@@ -1,6 +1,6 @@
 import { baseApi } from "@/redux/baseApi";
 
-export const blogApi = baseApi.injectEndpoints({
+export const aboutApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAbout: builder.query({
       query: () => ({
@@ -30,4 +30,4 @@ export const blogApi = baseApi.injectEndpoints({
 });
 
 export const { useGetAboutQuery, useAddAboutMutation, useUpdateAboutMutation } =
-  blogApi;
+  aboutApi;

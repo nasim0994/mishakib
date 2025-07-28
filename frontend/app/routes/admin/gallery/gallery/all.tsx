@@ -51,7 +51,9 @@ export default function AllGallery() {
             {galleries?.map((gallery: IGallery, i: number) => (
               <tr key={gallery?._id}>
                 <td>{i + 1}</td>
-                <td>{gallery?.image}</td>
+                <td>
+                  <img src={gallery?.image} alt="gallery" className="w-10" />
+                </td>
                 <td>{gallery?.category?.title}</td>
                 <td>
                   <div className="flex gap-3 items-center">
