@@ -47,8 +47,8 @@ const adminSidebarItems: ISidebarItem[] = [
       },
       {
         icon: <BiBookAlt />,
-        title: "Count",
-        path: "/admin/count",
+        title: "Counter",
+        path: "/admin/counter/all",
       },
     ],
   },
@@ -71,14 +71,9 @@ const adminSidebarItems: ISidebarItem[] = [
     title: "Skill",
     menu: [
       {
-        icon: <FaUsers />,
-        title: "Skill Section",
-        path: "/admin/skill/section",
-      },
-      {
         icon: <RiAdminFill />,
-        title: "All Skills",
-        path: "/admin/skill/all",
+        title: "My Skills",
+        path: "/admin/skill",
       },
     ],
   },
