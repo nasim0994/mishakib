@@ -9,7 +9,7 @@ export const addGalleryService = async (data: IGallery) => {
 };
 
 export const getAllGalleryService = async () => {
-  const result = await Gallery.find();
+  const result = await Gallery.find().populate('category', 'title');
   return result;
 };
 

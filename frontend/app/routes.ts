@@ -30,6 +30,17 @@ export default [
         route("service/all", "routes/admin/service/all.tsx"),
         route("service/add", "routes/admin/service/add.tsx"),
         route("service/edit/:id", "routes/admin/service/edit.tsx"),
+
+        route("gallery/category/all", "routes/admin/gallery/category/all.tsx"),
+        route("gallery/category/add", "routes/admin/gallery/category/add.tsx"),
+        route(
+          "gallery/category/edit/:id",
+          "routes/admin/gallery/category/edit.tsx"
+        ),
+
+        route("gallery/all", "routes/admin/gallery/gallery/all.tsx"),
+        route("gallery/add", "routes/admin/gallery/gallery/add.tsx"),
+        route("gallery/edit/:id", "routes/admin/gallery/gallery/edit.tsx"),
       ]),
     ]),
   ]),

@@ -28,5 +28,7 @@ export const baseApi = createApi({
     "logo",
     "favicon",
     "seo",
+    "category",
+    "gallery",
   ],
 });
