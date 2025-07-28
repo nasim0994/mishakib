@@ -31,5 +31,6 @@ export const baseApi = createApi({
     "category",
     "gallery",
     "contact",
+    "social",
   ],
 });

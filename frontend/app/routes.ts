@@ -42,6 +42,10 @@ export default [
         route("gallery/all", "routes/admin/gallery/gallery/all.tsx"),
         route("gallery/add", "routes/admin/gallery/gallery/add.tsx"),
         route("gallery/edit/:id", "routes/admin/gallery/gallery/edit.tsx"),
+
+        route("social/all", "routes/admin/contact/social/all.tsx"),
+        route("social/add", "routes/admin/contact/social/add.tsx"),
+        route("social/edit/:id", "routes/admin/contact/social/edit.tsx"),
       ]),
     ]),
   ]),
