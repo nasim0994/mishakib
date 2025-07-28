@@ -30,5 +30,6 @@ export const baseApi = createApi({
     "seo",
     "category",
     "gallery",
+    "contact",
   ],
 });

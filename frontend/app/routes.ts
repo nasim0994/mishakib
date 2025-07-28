@@ -18,6 +18,7 @@ export default [
       ...prefix("admin", [
         route("dashboard", "routes/admin/dashboard/index.tsx"),
         route("about", "routes/admin/contact/about.tsx"),
+        route("contact", "routes/admin/contact/contact.tsx"),
         route("skill", "routes/admin/skill/index.tsx"),
 
         route("counter/all", "routes/admin/contact/counter/allCounter.tsx"),
