@@ -30,6 +30,7 @@ export default function About() {
   useEffect(() => {
     if (about) {
       form.reset({
+        name: about.name || "",
         title: about.title || "",
         subTitle: about.subTitle || "",
         image: about.image || "",
@@ -81,6 +82,25 @@ export default function About() {
           className="flex flex-col gap-3 p-4 form_group"
           onSubmit={form.handleSubmit(onSubmit)}
         >
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <label>Name</label>
+                <FormControl>
+                  <Input
+                    type="text"
+                    {...field}
+                    value={field.value || ""}
+                    required
+                  />
+                </FormControl>
+                <FormMessage className="text-xs font-light" />
+              </FormItem>
+            )}
+          />
+
           <FormField
             control={form.control}
             name="title"

@@ -93,14 +93,16 @@ export default function Project({
                       </DialogTrigger>
                       <DialogContent className="sm:max-w-[90%] h-[95vh] overflow-y-auto">
                         <div>
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2.5">
                             <img
                               src={about?.image}
                               alt="me"
-                              className="w-8 h-8 rounded-full"
+                              className="w-11 h-11 rounded-full object-center border border-primary"
                             />
                             <div>
-                              <h2>{selectedProject?.name}</h2>
+                              <h2 className="font-medium text-lg">
+                                {selectedProject?.name}
+                              </h2>
                               <p className="text-sm font-light text-neutral">
                                 {about?.name}
                               </p>

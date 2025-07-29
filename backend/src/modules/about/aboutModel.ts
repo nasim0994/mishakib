@@ -3,6 +3,7 @@ import { IAbout } from './aboutInterface';
 
 const aboutSchema = new Schema<IAbout>(
   {
+    name: { type: String, required: true },
     title: { type: String, required: true },
     subTitle: { type: String, required: true },
     description: { type: String, required: true },
