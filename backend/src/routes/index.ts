@@ -7,13 +7,13 @@ import { aboutRoute } from '../modules/about/aboutRoute';
 import { counterRoute } from '../modules/counter/counterRoute';
 import { serviceRoute } from '../modules/service/serviceRoute';
 import { skillRoute } from '../modules/skill/skillRoute';
-import { categoryRoute } from '../modules/gallery/category/categoryRoute';
-import { galleryRoute } from '../modules/gallery/gallery/galleryRoute';
 import { contactRoute } from '../modules/contact/contactRoute';
 import { socialRoute } from '../modules/social/socialRoute';
 import { messageRoute } from '../modules/message/messageRoute';
 import { logoRoute } from '../modules/logo/logoRoute';
 import { seoRoute } from '../modules/seo/seoRoute';
+import { projectRoute } from '../modules/project/project/projectRoute';
+import { categoryRoute } from '../modules/project/category/categoryRoute';
 
 const moduleRoutes = [
   {
@@ -45,12 +45,12 @@ const moduleRoutes = [
     route: skillRoute,
   },
   {
-    path: '/gallery/category',
+    path: '/project/category',
     route: categoryRoute,
   },
   {
-    path: '/gallery',
-    route: galleryRoute,
+    path: '/project',
+    route: projectRoute,
   },
   {
     path: '/contact',

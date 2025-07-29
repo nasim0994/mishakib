@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import type { TResponse } from "@/interface/globalInterface";
-import { useAddCategoryMutation } from "@/redux/features/gallery/categoryApi";
+import { useAddCategoryMutation } from "@/redux/features/project/categoryApi";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
@@ -23,7 +23,7 @@ export default function AddCategory() {
     const res = (await addCategory(newData)) as TResponse;
     if (res?.data?.success) {
       toast.success("Category Add Success");
-      navigate("/admin/gallery/category/all");
+      navigate("/admin/project/category/all");
     } else {
       toast.error(res?.error?.data?.message || "something went wrong!");
       console.log(res);
@@ -33,7 +33,7 @@ export default function AddCategory() {
   return (
     <section className="bg-base-100 shadow rounded">
       <div className="p-4 border-b text-neutral font-medium flex justify-between items-center">
-        <h3>Add Service</h3>
+        <h3>Add Project Category</h3>
       </div>
 
       <Form {...form}>

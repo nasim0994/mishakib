@@ -4,21 +4,21 @@ export const categoryApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllCategory: builder.query({
       query: () => ({
-        url: "/gallery/category/all",
+        url: "/project/category/all",
       }),
       providesTags: ["category"],
     }),
 
     getCategoryById: builder.query({
       query: (id) => ({
-        url: `/gallery/category/${id}`,
+        url: `/project/category/${id}`,
       }),
       providesTags: ["category"],
     }),
 
     addCategory: builder.mutation({
       query: (data) => ({
-        url: `/gallery/category/add`,
+        url: `/project/category/add`,
         method: "POST",
         body: data,
       }),
@@ -27,7 +27,7 @@ export const categoryApi = baseApi.injectEndpoints({
 
     updateCategory: builder.mutation({
       query: ({ id, data }) => ({
-        url: `/gallery/category/update/${id}`,
+        url: `/project/category/update/${id}`,
         method: "PATCH",
         body: data,
       }),
@@ -36,7 +36,7 @@ export const categoryApi = baseApi.injectEndpoints({
 
     deleteCategory: builder.mutation({
       query: (id) => ({
-        url: `/gallery/category/delete/${id}`,
+        url: `/project/category/delete/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["category"],

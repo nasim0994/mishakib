@@ -73,17 +73,17 @@ const adminSidebarItems: ISidebarItem[] = [
     ],
   },
   {
-    title: "Gallery",
+    title: "Project",
     menu: [
       {
         icon: <IoStorefrontOutline />,
-        title: "Gallery Category",
-        path: "/admin/gallery/category/all",
+        title: "Project Category",
+        path: "/admin/project/category/all",
       },
       {
         icon: <IoStorefrontOutline />,
-        title: "All Gallery",
-        path: "/admin/gallery/all",
+        title: "All Projects",
+        path: "/admin/project/all",
       },
     ],
   },

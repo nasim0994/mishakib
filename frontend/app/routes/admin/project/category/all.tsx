@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
-import type { IGalleryCategory } from "@/interface/galleryInterface";
 import type { TResponse } from "@/interface/globalInterface";
+import type { IProjectCategory } from "@/interface/projectInterface";
 import {
   useDeleteCategoryMutation,
   useGetAllCategoryQuery,
-} from "@/redux/features/gallery/categoryApi";
+} from "@/redux/features/project/categoryApi";
 import toast from "react-hot-toast";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import { Link } from "react-router";
@@ -32,7 +32,7 @@ export default function AllCategory() {
     <section>
       <div className="flex justify-between items-center px-4 py-2 border-b bg-base-100 rounded border-gray-300">
         <h3 className="font-medium text-neutral">All Categories</h3>
-        <Link to="/admin/gallery/category/add" className="btn">
+        <Link to="/admin/project/category/add" className="btn">
           <Button>Add Category</Button>
         </Link>
       </div>
@@ -48,14 +48,14 @@ export default function AllCategory() {
             </tr>
           </thead>
           <tbody>
-            {categories?.map((category: IGalleryCategory, i: number) => (
+            {categories?.map((category: IProjectCategory, i: number) => (
               <tr key={category?._id}>
                 <td>{i + 1}</td>
                 <td>{category?.title}</td>
                 <td>{category?.order}</td>
                 <td>
                   <div className="flex gap-3 items-center">
-                    <Link to={`/admin/gallery/category/edit/${category?._id}`}>
+                    <Link to={`/admin/project/category/edit/${category?._id}`}>
                       <AiOutlineEdit className="text-lg hover:text-red-500" />
                     </Link>
                     <button onClick={() => handleDelete(category?._id)}>
