@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
   server: {
     port: 5700,
-    allowedHosts: [""],
+    allowedHosts: ["misakib.com", "www.misakib.com"],
   },
   preview: {
     port: 5700,
