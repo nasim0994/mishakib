@@ -1,7 +1,8 @@
 import { z } from 'zod';
 
 export const messageValidation = z.object({
-  icon: z.string().min(1, 'Icon is required'),
-  link: z.string().url('Link must be a valid URL').min(1, 'Link is required'),
+  name: z.string().min(1, 'Name is required'),
+  subject: z.string().min(1, 'Subject is required'),
+  message: z.string().min(1, 'Message is required'),
 });
 export const updateMessageValidation = messageValidation.partial();

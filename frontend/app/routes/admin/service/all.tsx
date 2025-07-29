@@ -44,7 +44,6 @@ export default function AllService() {
               <th>SL</th>
               <th>Title</th>
               <th>Icon</th>
-              <th>Image</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -55,9 +54,6 @@ export default function AllService() {
                 <td>{service?.title}</td>
                 <td>
                   <img src={service?.icon} alt="service" className="w-7" />
-                </td>
-                <td>
-                  <img src={service?.image} alt="service" className="w-8" />
                 </td>
                 <td>
                   <div className="flex gap-3 items-center">

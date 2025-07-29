@@ -1,3 +1,4 @@
+import { useGetLogoQuery } from "@/redux/features/logo/logoApi";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
@@ -5,6 +6,9 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+
+  const { data } = useGetLogoQuery({});
+  const logo = data?.data;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,15 +71,15 @@ export default function Header() {
         Skill
       </Link>
       <Link
-        to="#gallery"
+        to="#projects"
         onClick={() => setMenuOpen(false)}
         className={`duration-300 ${
-          activeSection === "gallery"
+          activeSection === "projects"
             ? "text-secondary"
             : "hover:text-secondary"
         }`}
       >
-        Gallery
+        Projects
       </Link>
       <Link
         to="#contact"
@@ -100,7 +104,7 @@ export default function Header() {
       <div className="container">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-2xl font-medium">
-            M.<span className="text-secondary">I.</span> Shakib
+            <img src={logo?.logo} alt="logo" className="w-32" />
           </Link>
 
           <nav className="space-x-8 hidden md:flex">{navLinks}</nav>

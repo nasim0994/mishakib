@@ -1,27 +1,8 @@
+import type { IService } from "@/interface/serviceInterface";
+import { getShortDescription } from "@/utils/getShortDescription";
 import { useState } from "react";
 
-const services = [
-  {
-    icon: "https://cdn-icons-png.flaticon.com/512/4668/4668243.png",
-    title: "Graphics Design",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, sed est minima optio ratione necessitatibus ipsa modi facere. Nulla, in...",
-  },
-  {
-    icon: "https://cdn-icons-png.flaticon.com/512/4668/4668243.png",
-    title: "Web Development",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, sed est minima optio ratione necessitatibus ipsa modi facere. Nulla, in...",
-  },
-  {
-    icon: "https://cdn-icons-png.flaticon.com/512/4668/4668243.png",
-    title: "App Development",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, sed est minima optio ratione necessitatibus ipsa modi facere. Nulla, in...",
-  },
-];
-
-export default function Services() {
+export default function Services({ services }: { services: IService[] }) {
   const [hoveredIndex, setHoveredIndex] = useState<null | number>(null);
   const getActiveIndex = () => hoveredIndex ?? 1;
 
@@ -39,7 +20,7 @@ export default function Services() {
           data-aos="fade-up-right"
           className="pt-10 grid grid-cols-2 md:grid-cols-3 gap-8 md:mx-40"
         >
-          {services.map((service, index) => {
+          {services?.map((service, index) => {
             const isActive = index === getActiveIndex();
             return (
               <div
@@ -58,9 +39,7 @@ export default function Services() {
                   <img src={service.icon} alt="service" className="w-10" />
                   <h2 className="text-xl font-medium mt-2">{service?.title}</h2>
                   <p className="text-sm text-gray-300">
-                    {service?.description.length > 100
-                      ? service?.description.slice(0, 100) + "..."
-                      : service?.description}
+                    {getShortDescription(service?.description, 100)}
                   </p>
                 </div>
               </div>

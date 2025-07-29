@@ -6,7 +6,6 @@ const serviceSchema = new Schema<IService>(
     icon: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
-    image: { type: String },
   },
   { timestamps: true },
 );

@@ -1,4 +1,15 @@
-export default function Banner() {
+import type { IAbout } from "@/interface/aboutInterface";
+import type { ICounter } from "@/interface/counterInterface";
+import { getShortDescription } from "@/utils/getShortDescription";
+import { Link } from "react-router";
+
+export default function Banner({
+  about,
+  counters,
+}: {
+  about: IAbout;
+  counters: ICounter[];
+}) {
   return (
     <section id="about">
       <div className="w-full min-h-screen bg-gradient-to-t from-primary via-accent to-[#141c0d] text-base-100 sm:px-10 pt-10 flex items-center relative overflow-hidden">
@@ -12,47 +23,40 @@ export default function Banner() {
 
               {/* Main Image */}
               <img
-                src="/images/hero.png"
+                src={about?.image}
                 alt="Profile"
                 className="w-[75%] mx-auto h-auto rounded-lg relative z-10"
               />
             </div>
 
             <div className="md:w-1/2 w-full">
-              <p className="text-sm text-secondary mb-2">Hello I'm Smith</p>
-              <h1 className="text-5xl font-bold mb-4">UX/UI Designer</h1>
+              <p className="text-sm text-secondary mb-2">{about?.title}</p>
+              <h1 className="text-5xl font-bold mb-4">{about?.subTitle}</h1>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Rutrum odio est platea viverra sed lobortis elit. Eget fringilla
-                tempus suspendisse amet vitae amet lorem erat fermentum. <br />
-                Amet eu quis mauris est diam eget nulla purus ipsum. Lacinia
-                accumsan enim amet.
+                {getShortDescription(about?.description, 500)}
               </p>
               <div>
-                <button className="bg-secondary/90 text-secondary-foreground px-6 py-2 rounded hover:bg-secondary transition">
+                <Link
+                  to={about?.cv || "#"}
+                  target="_blank"
+                  className="bg-secondary/90 text-secondary-foreground px-6 py-2 rounded hover:bg-secondary transition"
+                >
                   Download CV
-                </button>
+                </Link>
               </div>
             </div>
           </div>
 
           {/* Stats */}
           <div className="sm:mx-10 grid grid-cols-2 sm:grid-cols-4 gap-6 bg-secondary/5 backdrop-blur-[20px] border border-secondary/10 rounded-xl p-6 shadow-lg">
-            <div>
-              <h3 className="text-2xl font-bold text-white">12+</h3>
-              <p className="text-sm text-gray-300">Years experience</p>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-white">60+</h3>
-              <p className="text-sm text-gray-300">Clients</p>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-white">240+</h3>
-              <p className="text-sm text-gray-300">Completed projects</p>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-white">20+</h3>
-              <p className="text-sm text-gray-300">Achievements</p>
-            </div>
+            {counters?.map((counter) => (
+              <div key={counter?._id} className="text-center">
+                <h3 className="text-2xl font-bold text-white">
+                  {counter?.count}
+                </h3>
+                <p className="text-sm text-gray-300">{counter?.title}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

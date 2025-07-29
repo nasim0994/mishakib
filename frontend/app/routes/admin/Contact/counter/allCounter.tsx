@@ -32,9 +32,11 @@ export default function AllCounter() {
     <section>
       <div className="flex justify-between items-center px-4 py-2 border-b bg-base-100 rounded border-gray-300">
         <h3 className="font-medium text-neutral">All Counters</h3>
-        <Link to="/admin/counter/add" className="btn">
-          <Button>Add Counter</Button>
-        </Link>
+        {counters?.length < 4 && (
+          <Link to="/admin/counter/add" className="btn">
+            <Button>Add Counter</Button>
+          </Link>
+        )}
       </div>
 
       <div className="relative overflow-x-auto mt-2">
