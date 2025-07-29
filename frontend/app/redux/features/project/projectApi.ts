@@ -3,8 +3,9 @@ import { baseApi } from "@/redux/baseApi";
 export const projectApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllProject: builder.query({
-      query: () => ({
+      query: (query) => ({
         url: "/project/all",
+        params: query,
       }),
       providesTags: ["project"],
     }),

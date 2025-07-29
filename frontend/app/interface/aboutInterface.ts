@@ -4,5 +4,6 @@ export type IAbout = {
   subTitle: string;
   description: string;
   image: string;
+  name: string;
   cv?: string;
 };

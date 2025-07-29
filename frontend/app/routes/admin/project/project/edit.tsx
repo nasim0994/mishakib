@@ -45,6 +45,7 @@ export default function EditProject() {
       form.setValue("name", project?.name);
       form.setValue("category", project?.category);
       form.setValue("thumbnail", project?.thumbnail);
+      form.setValue("banner", project?.banner);
       setGalleries(project?.galleries || []);
     }
   }, [project, form]);
@@ -130,6 +131,25 @@ export default function EditProject() {
             render={({ field }) => (
               <FormItem>
                 <label>Thumbnail</label>
+                <FormControl>
+                  <Input
+                    type="text"
+                    {...field}
+                    value={field.value || ""}
+                    required
+                  />
+                </FormControl>
+                <FormMessage className="text-xs font-light" />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="banner"
+            render={({ field }) => (
+              <FormItem>
+                <label>Banner</label>
                 <FormControl>
                   <Input
                     type="text"

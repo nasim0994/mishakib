@@ -8,6 +8,7 @@ export type IProject = {
   _id: string;
   name: string;
   thumbnail: string;
+  banner: string;
   galleries?: {
     _id: string;
     title: string;

@@ -130,6 +130,25 @@ export default function AddProject() {
             )}
           />
 
+          <FormField
+            control={form.control}
+            name="banner"
+            render={({ field }) => (
+              <FormItem>
+                <label>Banner</label>
+                <FormControl>
+                  <Input
+                    type="text"
+                    {...field}
+                    value={field.value || ""}
+                    required
+                  />
+                </FormControl>
+                <FormMessage className="text-xs font-light" />
+              </FormItem>
+            )}
+          />
+
           <Galleries galleries={galleries} setGalleries={setGalleries} />
 
           <Button type="submit" className="w-max mt-2" disabled={isLoading}>

@@ -20,13 +20,14 @@ export const addProjectController = catchAsync(async (req, res) => {
 });
 
 export const getAllProjectController = catchAsync(async (req, res) => {
-  const result = await getAllProjectService();
+  const { meta, data } = await getAllProjectService(req.query);
 
   res.status(200).json({
     success: true,
     statusCode: httpStatus.OK,
-    message: 'Categories get successfully!',
-    data: result,
+    message: 'Project get successfully!',
+    meta,
+    data,
   });
 });
 

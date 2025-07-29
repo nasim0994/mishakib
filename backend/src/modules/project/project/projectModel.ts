@@ -5,6 +5,7 @@ const projectSchema = new Schema<IProject>(
   {
     name: { type: String, required: true },
     thumbnail: { type: String, required: true },
+    banner: { type: String, required: true },
     galleries: [
       {
         title: { type: String },

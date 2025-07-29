@@ -28,11 +28,6 @@ export async function loader() {
   );
   const category = await res5.json();
 
-  const res6 = await fetch(
-    `${import.meta.env.VITE_BACKEND_URL}/api/project/all`
-  );
-  const project = await res6.json();
-
   const res7 = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contact`);
   const contact = await res7.json();
 
@@ -41,7 +36,7 @@ export async function loader() {
   );
   const social = await res8.json();
 
-  return { about, counter, service, skill, category, project, contact, social };
+  return { about, counter, service, skill, category, contact, social };
 }
 
 export function HydrateFallback() {
@@ -49,7 +44,7 @@ export function HydrateFallback() {
 }
 
 export default function HomePage({ loaderData }: Route.ComponentProps) {
-  const { about, counter, service, skill, project, category, contact, social } =
+  const { about, counter, service, skill, category, contact, social } =
     loaderData;
 
   return (
@@ -57,7 +52,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
       <Banner about={about?.data} counters={counter?.data} />
       <Services services={service?.data} />
       <Skill skill={skill?.data} />
-      <Project categories={category?.data} projects={project?.data} />
+      <Project categories={category?.data} about={about?.data} />
       <Contact contact={contact?.data} socials={social?.data} />
     </>
   );
