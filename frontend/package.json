@@ -1,5 +1,5 @@
 {
-  "name": "shakib",
+  "name": "sakib",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,7 +7,7 @@
     "dev": "react-router dev",
     "start-npm": "set PORT=5700 && react-router-serve ./build/server/index.js",
     "start-pnpm": "PORT=5700 react-router-serve ./build/server/index.js",
-    "start": "set PORT=5700 && react-router-serve ./build/server/index.js",
+    "start": "PORT=5700 react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
