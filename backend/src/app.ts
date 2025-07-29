@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('uploads'));
 app.use(
   cors({
-    origin: ['http://localhost:1260'],
+    origin: ['http://localhost:5700', 'https://misakib.com'],
     credentials: true,
   }),
 );
