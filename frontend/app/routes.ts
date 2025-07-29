@@ -17,16 +17,13 @@ export default [
     layout("routes/admin/layout.tsx", [
       ...prefix("admin", [
         route("dashboard", "routes/admin/dashboard/index.tsx"),
-        route("about", "routes/admin/contact/about.tsx"),
-        route("contact", "routes/admin/contact/contact.tsx"),
+        route("about", "routes/admin/about/index.tsx"),
+        route("contact", "routes/admin/contact/index.tsx"),
         route("skill", "routes/admin/skill/index.tsx"),
 
-        route("counter/all", "routes/admin/contact/counter/allCounter.tsx"),
-        route("counter/add", "routes/admin/contact/counter/addCounter.tsx"),
-        route(
-          "counter/edit/:id",
-          "routes/admin/contact/counter/editCounter.tsx"
-        ),
+        route("counter/all", "routes/admin/counter/allCounter.tsx"),
+        route("counter/add", "routes/admin/counter/addCounter.tsx"),
+        route("counter/edit/:id", "routes/admin/counter/editCounter.tsx"),
 
         route("service/all", "routes/admin/service/all.tsx"),
         route("service/add", "routes/admin/service/add.tsx"),
