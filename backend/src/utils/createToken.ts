@@ -9,7 +9,7 @@ export const createToken = (
     _id: Types.ObjectId;
   },
   secret: string,
-  expiresIn: string,
+  expiresIn: number | string | undefined,
 ) => {
   const options: SignOptions = { expiresIn };
   return jwt.sign(jwtPayload, secret, options);
