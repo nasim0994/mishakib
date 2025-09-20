@@ -71,6 +71,17 @@ export default function Header() {
         Skill
       </Link>
       <Link
+        to="#galleries"
+        onClick={() => setMenuOpen(false)}
+        className={`duration-300 ${
+          activeSection === "galleries"
+            ? "text-secondary"
+            : "hover:text-secondary"
+        }`}
+      >
+        Projects
+      </Link>
+      <Link
         to="#projects"
         onClick={() => setMenuOpen(false)}
         className={`duration-300 ${

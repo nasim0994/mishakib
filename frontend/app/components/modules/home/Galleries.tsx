@@ -19,7 +19,10 @@ export default function Galleries({
   const galleries = data?.data || [];
 
   return (
-    <section id="projects" className="py-16 bg-primary text-primary-foreground">
+    <section
+      id="galleries"
+      className="py-16 bg-primary text-primary-foreground"
+    >
       <div className="container relative">
         <div className="absolute w-[500px] h-[500px] rounded-full blur-[100px] bg-secondary/10 right-0 top-0"></div>
 
