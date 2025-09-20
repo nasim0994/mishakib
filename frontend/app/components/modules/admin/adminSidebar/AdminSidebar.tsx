@@ -7,14 +7,12 @@ import { CgSearchFound } from "react-icons/cg";
 import { MdMonitor } from "react-icons/md";
 
 import { useDispatch } from "react-redux";
-import { FaUsers } from "react-icons/fa";
-import { PiFlagBannerFill } from "react-icons/pi";
-import { IoMdSettings } from "react-icons/io";
 import { Link } from "react-router";
 import { userLogout } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hooks";
 import type { ISidebarItem } from "@/interface/sidebarInterface";
 import SidebarItems from "./SidebarItems";
+import { useGetLogoQuery } from "@/redux/features/logo/logoApi";
 
 const adminSidebarItems: ISidebarItem[] = [
   {
@@ -105,17 +103,17 @@ export default function AdminSidebar() {
   const user = loggedUser;
   const dispatch = useDispatch();
 
-  // const { data: logoData } = useGetMainLogoQuery();
-  // const logo = logoData?.data && logoData?.data[0]?.logo;
+  const { data } = useGetLogoQuery({});
+  const logo = data?.data?.logo;
 
   return (
     <div className="flex h-full flex-col justify-between">
       <div className="sidebar_menu">
         <Link to="/admin/dashboard">
           <img
-            src="/images/logo.png"
+            src={logo}
             alt="logo"
-            className="mx-auto my-3 w-24 sm:w-32"
+            className="mx-auto my-3 w-24 sm:w-32 bg-primary"
           />
         </Link>
 

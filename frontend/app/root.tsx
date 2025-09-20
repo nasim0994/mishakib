@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "react-router";
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -14,12 +15,18 @@ import { Toaster } from "react-hot-toast";
 export async function loader() {
   const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/seo`);
   const seo = await res.json();
-  return seo;
+
+  const res2 = await fetch(
+    `${import.meta.env.VITE_BACKEND_URL}/api/logo-favicon`
+  );
+  const favicon = await res2.json();
+
+  return { seo, favicon };
 }
 
 export function meta({ matches }: Route.MetaArgs) {
   const rootData = matches?.find((m) => m?.id === "root");
-  const seo = rootData?.data?.data;
+  const seo = (rootData?.data as { seo?: { data?: any } })?.seo?.data;
 
   return [
     { title: seo?.title || "Root" },
@@ -66,6 +73,8 @@ export function meta({ matches }: Route.MetaArgs) {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { favicon } = useLoaderData<typeof loader>();
+
   return (
     <html lang="en">
       <head>
@@ -73,6 +82,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        {favicon?.data?.favicon && (
+          <link rel="icon" href={favicon.data.favicon} type="image/x-icon" />
+        )}
       </head>
       <body>
         {children}
