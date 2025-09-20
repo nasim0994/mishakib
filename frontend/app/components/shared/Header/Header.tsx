@@ -79,7 +79,7 @@ export default function Header() {
             : "hover:text-secondary"
         }`}
       >
-        Projects
+        Galleries
       </Link>
       <Link
         to="#projects"
