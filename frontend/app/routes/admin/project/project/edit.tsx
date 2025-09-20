@@ -13,19 +13,10 @@ import { type FieldValues, type SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router";
 import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
   useGetProjectByIdQuery,
   useUpdateProjectMutation,
 } from "@/redux/features/project/projectApi";
-import type { IProject, IProjectCategory } from "@/interface/projectInterface";
-import { useGetAllCategoryQuery } from "@/redux/features/project/categoryApi";
+import type { IProject } from "@/interface/projectInterface";
 import Galleries, { type IGallery } from "./Galleries";
 
 export default function EditProject() {
@@ -37,13 +28,9 @@ export default function EditProject() {
   const { data } = useGetProjectByIdQuery(id);
   const project: IProject = data?.data;
 
-  const { data: category } = useGetAllCategoryQuery({});
-  const categories = category?.data || [];
-
   useEffect(() => {
     if (project) {
       form.setValue("name", project?.name);
-      form.setValue("category", project?.category);
       form.setValue("thumbnail", project?.thumbnail);
       form.setValue("banner", project?.banner);
       setGalleries(project?.galleries || []);
@@ -74,56 +61,24 @@ export default function EditProject() {
           className="flex flex-col gap-2 p-4 form_group"
           onSubmit={form.handleSubmit(onSubmit)}
         >
-          <div className="grid sm:grid-cols-2 gap-3">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <label>Name</label>
-                  <FormControl>
-                    <Input
-                      type="text"
-                      {...field}
-                      value={field.value || ""}
-                      required
-                    />
-                  </FormControl>
-                  <FormMessage className="text-xs font-light" />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="category"
-              render={({ field }) => (
-                <FormItem>
-                  <label>Category</label>
-                  <FormControl>
-                    <Select value={field.value} onValueChange={field.onChange}>
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Select Category" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectGroup>
-                          {categories.map((category: IProjectCategory) => (
-                            <SelectItem
-                              key={category?._id}
-                              value={category?._id}
-                            >
-                              {category?.title}
-                            </SelectItem>
-                          ))}
-                        </SelectGroup>
-                      </SelectContent>
-                    </Select>
-                  </FormControl>
-                  <FormMessage className="text-xs font-light" />
-                </FormItem>
-              )}
-            />
-          </div>
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <label>Name</label>
+                <FormControl>
+                  <Input
+                    type="text"
+                    {...field}
+                    value={field.value || ""}
+                    required
+                  />
+                </FormControl>
+                <FormMessage className="text-xs font-light" />
+              </FormItem>
+            )}
+          />
 
           <FormField
             control={form.control}

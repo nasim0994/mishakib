@@ -3,6 +3,7 @@ import AppError from '../../../errors/AppError';
 import { IProject } from './projectInterface';
 import { Project } from './projectModel';
 import QueryBuilder from '../../../builders/QueryBuilder';
+import { Types } from 'mongoose';
 
 export const addProjectService = async (data: IProject) => {
   const result = await Project.create(data);
@@ -11,7 +12,7 @@ export const addProjectService = async (data: IProject) => {
 
 export const getAllProjectService = async (query: Record<string, unknown>) => {
   const ProjectQuery = new QueryBuilder(
-    Project.find().populate('category', 'title'),
+    Project.find().populate('galleries.category', 'title'),
     query,
   )
     .filter()
@@ -26,6 +27,41 @@ export const getAllProjectService = async (query: Record<string, unknown>) => {
     meta,
     data,
   };
+};
+
+export const getAllGalleryImageService = async (
+  query: Record<string, unknown>,
+) => {
+  try {
+    const categoryId = query.category as string | undefined;
+
+    const pipeline: any[] = [{ $unwind: '$galleries' }];
+
+    if (categoryId && Types.ObjectId.isValid(categoryId)) {
+      pipeline.push({
+        $match: {
+          'galleries.category': new Types.ObjectId(categoryId),
+        },
+      });
+    }
+
+    pipeline.push({
+      $project: {
+        _id: 0,
+        projectId: '$_id',
+        projectName: '$name',
+        title: '$galleries.title',
+        link: '$galleries.link',
+        category: '$galleries.category',
+      },
+    });
+
+    const galleries = await Project.aggregate(pipeline);
+
+    return galleries;
+  } catch (error: any) {
+    throw new Error(error.message || 'Failed to fetch gallery images');
+  }
 };
 
 export const getSingleProjectService = async (id: string) => {

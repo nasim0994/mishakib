@@ -3,6 +3,7 @@ const Router = express.Router();
 import {
   addProjectController,
   deleteProjectController,
+  getAllGalleryImageController,
   getAllProjectController,
   getSingleProjectController,
   updateProjectController,
@@ -21,6 +22,7 @@ Router.post(
   addProjectController,
 );
 Router.get('/all', getAllProjectController);
+Router.get('/gallery/all', getAllGalleryImageController);
 Router.get('/:id', getSingleProjectController);
 Router.patch(
   '/update/:id',

@@ -5,6 +5,7 @@ import Skill from "@/components/modules/home/Skill";
 import Spinner from "@/components/shared/Spinner";
 import type { Route } from "./+types";
 import Project from "@/components/modules/home/Project";
+import Galleries from "@/components/modules/home/Galleries";
 
 export async function loader() {
   const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/about`);
@@ -52,7 +53,8 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
       <Banner about={about?.data} counters={counter?.data} />
       <Services services={service?.data} />
       <Skill skill={skill?.data} />
-      <Project categories={category?.data} about={about?.data} />
+      <Galleries categories={category?.data} />
+      <Project about={about?.data} />
       <Contact contact={contact?.data} socials={social?.data} />
     </>
   );

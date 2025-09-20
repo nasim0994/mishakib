@@ -1,9 +1,20 @@
 import { Input } from "@/components/ui/input";
 import { FaTrash, FaPlus } from "react-icons/fa";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useGetAllCategoryQuery } from "@/redux/features/project/categoryApi";
+import type { IProjectCategory } from "@/interface/projectInterface";
 
 export interface IGallery {
   title: string;
   link: string;
+  category: string;
 }
 
 interface IProps {
@@ -12,6 +23,9 @@ interface IProps {
 }
 
 export default function Galleries({ galleries, setGalleries }: IProps) {
+  const { data } = useGetAllCategoryQuery({});
+  const categories = data?.data || [];
+
   const handleInputChange = (
     index: number,
     event: React.ChangeEvent<HTMLInputElement>
@@ -22,9 +36,15 @@ export default function Galleries({ galleries, setGalleries }: IProps) {
     );
   };
 
+  const handleCategoryChange = (index: number, value: string) => {
+    setGalleries((prev) =>
+      prev.map((item, i) => (i === index ? { ...item, category: value } : item))
+    );
+  };
+
   const handleAddFields = () => {
     if (isFormValid()) {
-      setGalleries([...galleries, { title: "", link: "" }]);
+      setGalleries([...galleries, { title: "", link: "", category: "" }]);
     } else {
       alert("Please fill all fields before adding a new one.");
     }
@@ -38,12 +58,13 @@ export default function Galleries({ galleries, setGalleries }: IProps) {
 
   const isFormValid = () => {
     return galleries.every(
-      (entry: IGallery) => entry.title !== "" && entry.link !== ""
+      (entry: IGallery) =>
+        entry.title !== "" && entry.link !== "" && entry.category !== ""
     );
   };
 
   return (
-    <div className="flex flex-col gap-3 border border-gray-200 rounded p-3">
+    <div className="flex flex-col gap-2 border border-gray-200 rounded p-2">
       {galleries?.map((skill: IGallery, index: number) => (
         <div key={index} className="flex gap-2 text-sm">
           <Input
@@ -60,6 +81,23 @@ export default function Galleries({ galleries, setGalleries }: IProps) {
             value={skill.link}
             onChange={(event) => handleInputChange(index, event)}
           />
+          <Select
+            onValueChange={(value) => handleCategoryChange(index, value)}
+            value={skill.category}
+          >
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select Category" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {categories.map((category: IProjectCategory) => (
+                  <SelectItem key={category?._id} value={category?._id}>
+                    {category?.title}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
           <button
             type="button"
             onClick={() => handleRemoveFields(index)}

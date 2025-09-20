@@ -10,9 +10,13 @@ const projectSchema = new Schema<IProject>(
       {
         title: { type: String },
         link: { type: String },
+        category: {
+          type: Schema.Types.ObjectId,
+          ref: 'Category',
+          required: true,
+        },
       },
     ],
-    category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
   },
   { timestamps: true },
 );

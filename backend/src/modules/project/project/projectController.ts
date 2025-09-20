@@ -2,6 +2,7 @@ import httpStatus from 'http-status';
 import {
   addProjectService,
   deleteProjectService,
+  getAllGalleryImageService,
   getAllProjectService,
   getSingleProjectService,
   updateProjectService,
@@ -28,6 +29,17 @@ export const getAllProjectController = catchAsync(async (req, res) => {
     message: 'Project get successfully!',
     meta,
     data,
+  });
+});
+
+export const getAllGalleryImageController = catchAsync(async (req, res) => {
+  const result = await getAllGalleryImageService(req.query);
+
+  res.status(200).json({
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Galleries get successfully!',
+    data: result,
   });
 });
 

@@ -10,6 +10,14 @@ export const projectApi = baseApi.injectEndpoints({
       providesTags: ["project"],
     }),
 
+    getAllGallery: builder.query({
+      query: (query) => ({
+        url: "/project/gallery/all",
+        params: query,
+      }),
+      providesTags: ["project"],
+    }),
+
     getProjectById: builder.query({
       query: (id) => ({
         url: `/project/${id}`,
@@ -47,6 +55,7 @@ export const projectApi = baseApi.injectEndpoints({
 
 export const {
   useGetAllProjectQuery,
+  useGetAllGalleryQuery,
   useAddProjectMutation,
   useUpdateProjectMutation,
   useDeleteProjectMutation,

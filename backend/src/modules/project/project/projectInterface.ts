@@ -7,6 +7,6 @@ export type IProject = {
   galleries?: {
     title: string;
     link: string;
+    category: Types.ObjectId;
   }[];
-  category: Types.ObjectId;
 };
