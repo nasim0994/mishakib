@@ -53,8 +53,8 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
       <Banner about={about?.data} counters={counter?.data} />
       <Services services={service?.data} />
       <Skill skill={skill?.data} />
-      <Galleries categories={category?.data} />
       <Project about={about?.data} />
+      <Galleries categories={category?.data} />
       <Contact contact={contact?.data} socials={social?.data} />
     </>
   );
